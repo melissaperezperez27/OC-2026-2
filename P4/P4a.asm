@@ -2,14 +2,16 @@
 								; que se encuentran en la biblioteca libpc_io.a
 
 section	.text
-	global _start       ;referencia para inicio de programa
+	global _start       ; referencia para inicio de programa
 	
 _start:            
     
-	mov edx, msg	
-    mov byte [msg], 'Z'	; edx = dirección de la cadena msg
-    
-	call puts			; imprime cadena msg terminada en valor nulo (0)
+	mov edx, msg 		; edx = dirección de la cadena msg	
+	call puts			; imprime cadena original msg terminada en valor nulo (0)
+				
+	mov byte [msg], 'Z'	; cambia la primera letra 'a' por 'Z'
+	mov edx, msg		; edx = dirección de la cadena msg
+	call msg			; imprime cadena modificada msg terminada en valor nulo (0)
 
 	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
 	int	0x80        	; llamada al sistema - fin de programa
