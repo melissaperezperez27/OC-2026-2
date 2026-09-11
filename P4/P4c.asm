@@ -7,8 +7,11 @@ section	.text
 _start:                   
 	mov edx, msg		; edx = dirección de la cadena msg
 	call puts			; imprime la cadena original msg terminada en valor nulo (0)
-    
-   
+
+    mov eax, msg        ; eax = dirección de la cadena msg
+    mov byte [eax+26], '@' ; cambia '0' por '@' utilizandodireccionamiento	relativo a registro
+    mov edx, msg        ; edx = dirección de la cadena msg
+    call puts           ; imprime la cadena modificada msg terminada en valor nulo (0)
 
 	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
 	int	0x80        	; llamada al sistema - fin de programa
