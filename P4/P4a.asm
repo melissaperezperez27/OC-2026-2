@@ -11,7 +11,7 @@ _start:
 				
 	mov byte [msg], 'Z'	; cambia la primera letra 'a' por 'Z'
 	mov edx, msg		; edx = dirección de la cadena msg
-	call msg			; imprime cadena modificada msg terminada en valor nulo (0)
+	call puts			; imprime cadena modificada msg terminada en valor nulo (0)
 
 	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
 	int	0x80        	; llamada al sistema - fin de programa
