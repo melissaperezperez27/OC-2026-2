@@ -8,6 +8,12 @@ _start:
 	mov edx, msg		; edx = dirección de la cadena msg
 	call puts			; imprime la cadena original msg terminada en valor nulo (0)
     
+	mov ebx, msg        ; ebx = registro base (inicio de la cadena)
+    mov ecx, 9          ; ecx = registro índice
+    mov byte [ebx+(ecx*2)+1], '%'   ; cambia 't' por '%' usando relativo a base mas índice escalado
+    mov edx, msg        ; edx = dirección de la cadena msg
+    call puts           ; imprime la cadena modificada msg terminada en valor nulo (0)
+	
 	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
 	int	0x80        	; llamada al sistema - fin de programa
 
