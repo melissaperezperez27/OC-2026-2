@@ -11,7 +11,7 @@ _start:
 	mov ebx, msg        ; ebx = registro base (inicio de la cadena)
     mov ecx, 6          ; ecx = registro índice
 	mov al, '%'			; al = registro con el carácter
-    mov byte [ebx+(ecx*2)+7], al   ; cambia 't' por '%' usando relativo a base mas índice escalado
+    mov byte [ebx+ecx*2+7], al   ; cambia 't' por '%' usando relativo a base mas índice escalado
     mov edx, msg        ; edx = dirección de la cadena msg
     call puts           ; imprime la cadena modificada msg terminada en valor nulo (0)
 	
