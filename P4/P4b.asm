@@ -8,9 +8,9 @@ _start:
 	mov edx, msg		; edx = dirección de la cadena msg
 	call puts			; imprime la cadena original msg terminada en valor nulo (0)
     
-    mov eax, msg        ; eax = dirección de la cadena msg
-    add eax, 23         ; se le suma 23 para llegar a 'x'
-    mov byte [eax], 'X' ; cambia 'x' por 'X' utilizando direccionamiento indirecto
+    mov ebx, msg        ; ebx = dirección de la cadena msg
+    add ebx, 23         ; se le suma 23 para llegar a 'x'
+    mov byte [ebx], 'X' ; cambia 'x' por 'X' utilizando direccionamiento indirecto
     mov edx, msg        ; edx = dirección de la cadena msg
     call puts           ; imprime la cadena modificada msg terminada en valor nulo (0)
 
