@@ -16,6 +16,7 @@ _start:
     call puts           ; imprime la cadena modificada msg terminada en valor nulo (0)
 
 	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
+	mov ebx, 0			; código de salida 0
 	int	0x80        	; llamada al sistema - fin de programa
 
 section	.data
