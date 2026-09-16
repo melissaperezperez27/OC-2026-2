@@ -9,8 +9,8 @@ _start:
 	call puts			; imprime la cadena original msg terminada en valor nulo (0)
     
 	mov ebx, msg        ; ebx = registro base (inicio de la cadena)
-    mov ecx, 9          ; ecx = registro índice
-    mov byte [ebx+(ecx*2)+1], '%'   ; cambia 't' por '%' usando relativo a base mas índice escalado
+    mov ecx, 6          ; ecx = registro índice
+    mov byte [ebx+(ecx*2)+7], '%'   ; cambia 't' por '%' usando relativo a base mas índice escalado
     mov edx, msg        ; edx = dirección de la cadena msg
     call puts           ; imprime la cadena modificada msg terminada en valor nulo (0)
 	
