@@ -10,7 +10,8 @@ _start:
     
 	mov ebx, msg		; ebx = registro base (inicio de la cadena)
 	mov ecx, 20			; ecx = registro índice (posición 20)
-	mov byte [ebx+ecx+5], 'Z'	; cambia 'z' por 'Z' usando direccionamiento relativo a base mas índice 
+	mov al, 'Z'			; al = registro con el carácter
+	mov byte [ebx+ecx+5], al	; cambia 'z' por 'Z' usando direccionamiento relativo a base mas índice 
 	mov edx, msg		; edx = dirección de la cadena msg
 	call puts			; imprime la cadena modificada msg terminada en valor nulo (0)
 
