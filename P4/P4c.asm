@@ -8,8 +8,9 @@ _start:
 	mov edx, msg		; edx = dirección de la cadena msg
 	call puts			; imprime la cadena original msg terminada en valor nulo (0)
 
-    mov eax, msg        ; eax = dirección de la cadena msg
-    mov byte [eax+26], '@' ; cambia '0' por '@' utilizando direccionamiento relativo a registro
+    mov ebx, msg        ; ebx = dirección de la cadena msg
+	mov al, '@'			; al = registro con el carácter
+    mov byte [ebx+26], al	; cambia '0' por '@' utilizando direccionamiento relativo a registro
     mov edx, msg        ; edx = dirección de la cadena msg
     call puts           ; imprime la cadena modificada msg terminada en valor nulo (0)
 

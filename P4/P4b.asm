@@ -10,7 +10,7 @@ _start:
     
     mov ebx, msg        ; ebx = dirección de la cadena msg
     add ebx, 23         ; se le suma 23 para llegar a 'x'
-	mov al, 'X'			; al = Registro con el carácter	
+	mov al, 'X'			; al = registro con el carácter	
     mov byte [ebx], al 	; cambia 'x' por 'X' utilizando direccionamiento indirecto
     mov edx, msg        ; edx = dirección de la cadena msg
     call puts           ; imprime la cadena modificada msg terminada en valor nulo (0)
