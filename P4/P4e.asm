@@ -9,9 +9,9 @@ _start:
 	call puts			; imprime la cadena original msg terminada en valor nulo (0)
     
 	mov ebx, msg		; ebx = registro base (inicio de la cadena)
-	mov ecx, 20			; ecx = registro índice (posición 20)
+	mov ecx, 16			; ecx = registro índice (posición 20)
 	mov al, 'Z'			; al = registro con el carácter
-	mov byte [ebx+ecx+5], al	; cambia 'z' por 'Z' usando direccionamiento relativo a base mas índice 
+	mov byte [ebx+ecx+9], al	; cambia 'z' por 'Z' usando direccionamiento relativo a base mas índice 
 	mov edx, msg		; edx = dirección de la cadena msg
 	call puts			; imprime la cadena modificada msg terminada en valor nulo (0)
 
