@@ -8,7 +8,7 @@ _start:                     ;tell linker entry point
 
 	mov ebx, 0x5C4B2A60 
     add ebx, 0x2228661
-    push ebx              ; a
+    push ebx              
     mov byte edx  
 
 	mov eax, 1	;system call number (sys_exit) -- fin del programa

@@ -1,4 +1,4 @@
-%include "../LIB/pc_io.inc"  	; incluir declaraciones de procedimiento externos
+%include "../LIB/pc_iox.inc"  	; incluir declaraciones de procedimiento externos
 								; que se encuentran en la biblioteca libpc_io.a
 
 section	.text
