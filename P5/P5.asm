@@ -11,12 +11,13 @@ _start:                     ;tell linker entry point
     add ebx, 0x02228661
     mov eax, ebx
     call pHex_dw
-    mov eax, 1
+    
 
     push bx                 ; inciso b
-    mov eax, 1
+ 
+    call pHex_dw
                             
-    inc N
+    inc word [N] 
     call pHex_dw
     mov eax, 1
 
@@ -24,9 +25,8 @@ _start:                     ;tell linker entry point
     mov cl, 8
     mul cl
     mov [N], cl 
-    call pHex_dw
-    mov eax, 1
 
+    movzx eax, word [N]
 
 
     ; mov edx, 0xFF
@@ -34,8 +34,10 @@ _start:                     ;tell linker entry point
 
     ; pop bx 
 
-	mov eax, 1	;system call number (sys_exit) -- fin del programa
-	int 0x80        ;call kernel
+
+	mov eax, 1
+	int 0x80       
 
 section	.data
 N db 0
+salto db 0
