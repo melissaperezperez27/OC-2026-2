@@ -27,7 +27,9 @@ _start:                     ;tell linker entry point
     mov [N], cl 
 
     movzx eax, word [N]
-
+    
+    inc word [N]
+    
 
     ; mov edx, 0xFF
     ; div bx
