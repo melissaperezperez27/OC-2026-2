@@ -52,7 +52,23 @@ _start:
     mov eax, 0x0A               ; Salto de línea
     call putchar                ; Imprime salto de línea
 
+    ; --- Inciso G ---
+    mov [N], ax                 ; Guardar el resultado anterior en N
+    dec word [N]                ; Decrementar el valor de N en 1
+    PUSHFD                      ; Guardar el registro de banderas 
+    POP EAX                     ; Pasar el registro de banderas de la pila hacia EAX
+    CALL pHex_dw                ; Imprimir el registro de banderas
+    mov eax, 0x0A               ; Salto de línea
+    call putchar                ; Imprime salto de línea
 
+    ; --- Inciso H ---
+    pop bx                      ; Recupera los 16 bits de la pila y los guarda en BX
+    mov ax, bx                  ; Guarda bx en ax
+    call pHex_w                 ; Imprime el valor 
+    mov eax, 0x0A               ; Salto de línea
+    call putchar                ; Imprime salto de línea
+
+    
     mov ebx, 0                  
     mov eax, 1                  
     int 0x80                    
