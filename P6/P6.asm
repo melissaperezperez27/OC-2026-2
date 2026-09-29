@@ -3,22 +3,23 @@
 section .text
 
     global _start
+    extern pBin_dw
 
 _start:
     ; --- Inciso a ---
     mov eax, 0x22446688
     ROR eax, 2
-    ;call pBin_dw 
+    call pBin_dw 
     mov eax, 0x0A               
     call putchar  
 
     ; --- Inciso b ---
-    ;mov cx, 0x3F48
-    ;mov bl, 2
-    ;shl cx, cl
-    ;call pBin_w
-    ;mov eax, 0x0A               
-    ;call putchar 
+    mov cx, 0x3F48
+    mov bl, 2
+    shl cx, cl
+    call pBin_w
+    mov eax, 0x0A               
+    call putchar 
 
     ; --- Inciso c ---
     ;mov esi, 0x20D685F3 ;0010 0000 1101 0110 1000 0101 1111
@@ -38,9 +39,10 @@ _start:
     ;call putchar 
 
     ; --- Inciso f ---
-    mov bp, 0x67DA
+    mov bp, 0x67DA 
+    mov al, 000001010010
     
-
+    
 
     ; ---
     mov ebx, 0                  
