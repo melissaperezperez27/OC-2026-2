@@ -72,7 +72,6 @@ _start:
     mov eax, 0x0A               ; salto de linea  
     call putchar                ; imprime salto de linea
 
-
     mov ebx, 0                  
     mov eax, 1                  
     int 0x80                    
