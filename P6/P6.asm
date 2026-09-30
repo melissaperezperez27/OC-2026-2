@@ -68,7 +68,23 @@ _start:
     ; --- Inciso i ---
     shl cx, 3                   ; se recorren 3 bits a la izquierda = multiplicar por 8
     mov ax, cx                  ; ax = cx
-    call pBin_w                ; imprime ax
+    call pBin_w                 ; imprime ax
+    mov eax, 0x0A               ; salto de linea  
+    call putchar                ; imprime salto de linea
+
+    ; --- Inciso j ---
+    pop esi                     ; saca el valor de la pila
+    mov eax, esi                ; eax = esi
+    call pBin_dw                ; imprime eax
+    mov eax, 0x0A               ; salto de linea  
+    call putchar                ; imprime salto de linea
+
+    ; --- Inciso k ---
+    mov eax, esi                ; eax = esi
+    shl eax, 3                  ; eax = eax * 8
+    shl esi, 1                  ; esi = esi * 2
+    add eax, esi                ; eax = eax * 8 + esi * 2 = ebx * 10
+    call pBin_dw                ; imprime eax
     mov eax, 0x0A               ; salto de linea  
     call putchar                ; imprime salto de linea
 
