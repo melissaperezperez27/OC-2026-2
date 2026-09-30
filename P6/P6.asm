@@ -57,6 +57,15 @@ _start:
     mov eax, 0x0A               ; salto de linea  
     call putchar                ; imprime salto de linea
 
+    ; --- Inciso h ---
+    mov ebx, 0x22446688         ; valor de prueba
+    shr ebx, 5                  ; se recorren 5 bits a la derecha = dividir entre 32
+    mov eax, ebx                ; eax = ebx
+    call pBin_dw                ; imprime eax
+    mov eax, 0x0A               ; salto de linea  
+    call putchar                ; imprime salto de linea
+
+
     mov ebx, 0                  
     mov eax, 1                  
     int 0x80                    
