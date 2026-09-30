@@ -31,6 +31,9 @@ _start:
     mov eax, 0x0A               ; salto de linea  
     call putchar                ; imprime salto de linea
 
+    ; --- Inciso d ---
+    push esi                    ; guarda en valor de esi en la pila
+
     mov ebx, 0                  
     mov eax, 1                  
     int 0x80                    
