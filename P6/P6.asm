@@ -44,7 +44,7 @@ _start:
 
     ; --- Inciso f --- 
     mov bp, 0x67DA              ; bp = 0x67DA = 0110-0111-1101-1010
-    and bp, 0x4452              ;      0x4452 = 0100-0100-0101-0010
+    and bp, 0xBBAC              ;      0xBBAC = 1011-1011-1010-1101     
     mov ax, bp                  ; ax = bp
     call pBin_w                 ; imprime ax
     mov eax, 0x0A               ; salto de linea  
