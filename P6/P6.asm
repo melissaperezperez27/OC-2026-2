@@ -1,51 +1,22 @@
-%include "../LIB/pc_io.inc"
+%include "../LIB/pc_iox.inc"
 
 section .text
 
     global _start
-    extern pBin_dw
+    extern pBin_dw    
+    extern pBin_w      
+    extern pBin_b
 
 _start:
     ; --- Inciso a ---
-    mov eax, 0x22446688
-    ROR eax, 2
-    call pBin_dw 
-    mov eax, 0x0A               
-    call putchar  
+    mov eax, 0x22446688         ; eax = 0x22446688
+    ror eax, 4                  ; mueve 4 bits = 1 hex a la derecha
+    call pBin_dw                ; imprime en binario
+    mov eax, 0x0A               ; salto de linea  
+    call putchar                ; imprime salto de linea
 
-    ; --- Inciso b ---
-    mov cx, 0x3F48
-    mov bl, 2
-    shl cx, cl
-    call pBin_w
-    mov eax, 0x0A               
-    call putchar 
-
-    ; --- Inciso c ---
-    ;mov esi, 0x20D685F3 ;0010 0000 1101 0110 1000 0101 1111
-    ;xor esi, 0xFF  
-    
-    ; --- Inciso d ---
-    ;push esi
-
-    ; --- Inciso e --- 
-    ;mov ch, 0xA7 
-    ;mov al, 001001000b
-    ;or ch, al
-    ;mov al, 0
-    ;mov al, ch
-    ;call pBin_w
-    ;mov eax, 0x0A               
-    ;call putchar 
-
-    ; --- Inciso f ---
-    mov bp, 0x67DA 
-    mov al, 000001010010
-    
-    
-
-    ; ---
+   
     mov ebx, 0                  
     mov eax, 1                  
     int 0x80                    
-
+    
