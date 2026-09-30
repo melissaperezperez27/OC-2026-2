@@ -34,6 +34,22 @@ _start:
     ; --- Inciso d ---
     push esi                    ; guarda en valor de esi en la pila
 
+    ; --- Inciso e ---
+    mov ch, 0xA7                ; ch = 0xA7 = 1010-0111
+    or ch, 0x48                 ;      0x48 = 0100-1000
+    mov al, ch                  ; al = ch
+    call pBin_b                 ; imprime al
+    mov eax, 0x0A               ; salto de linea  
+    call putchar                ; imprime salto de linea
+
+    ; --- Inciso f --- 
+    mov bp, 0x67DA              ; bp = 0x67DA = 0110-0111-1101-1010
+    and bp, 0x4452              ;      0x4452 = 0100-0100-0101-0010
+    mov ax, bp                  ; ax = bp
+    call pBin_w                 ; imprime ax
+    mov eax, 0x0A               ; salto de linea  
+    call putchar                ; imprime salto de linea
+
     mov ebx, 0                  
     mov eax, 1                  
     int 0x80                    
