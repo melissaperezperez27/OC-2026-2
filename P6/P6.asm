@@ -50,6 +50,13 @@ _start:
     mov eax, 0x0A               ; salto de linea  
     call putchar                ; imprime salto de linea
 
+    ; --- Inciso g ---
+    shr bp, 3                   ; se recorren 3 bits a la derecha = dividir entre 8
+    mov ax, bp                  ; ax = bp
+    call pBin_w                 ; imprime ax
+    mov eax, 0x0A               ; salto de linea  
+    call putchar                ; imprime salto de linea
+
     mov ebx, 0                  
     mov eax, 1                  
     int 0x80                    
