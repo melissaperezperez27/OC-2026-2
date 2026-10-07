@@ -90,7 +90,7 @@ parte_superior:
 imprimir_asterisco_sup:
     push ebx
     mov eax, '*'
-    call putchar
+    call putchar 
     pop ebx
     loop imprimir_asterisco_sup
 
@@ -124,8 +124,31 @@ imprimir_asterisco_inf:
     dec ebx             ; Resta asteriscos para la siguiente línea
     loop parte_inferior
 
+; *** Inciso D *** 
+    
+    mov ecx, 10
+    mov esi, 0
 
+    pedir_arreglo: 
+        push ecx
+        call getche
+        pop ecx
+        mov [arreglo_D+esi], al
+        inc esi
+    loop pedir_arreglo
+    
+    mov ecx, 10
+    mov esi, 0
 
+    imprimir_arreglo: 
+        mov al, [arreglo_D+esi]
+        push ecx
+        call putchar
+        mov eax, 0x0A       ; Salto de línea
+        call putchar
+        pop ecx
+        inc esi
+    loop imprimir_arreglo
 
 fin:
     mov ebx, 0                  
