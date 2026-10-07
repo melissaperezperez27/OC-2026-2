@@ -13,6 +13,7 @@ section	.data
 
     msg_B1	db  'El carácter es un número', 0xa, 0 
     msg_B2	db  'El carácter es una letra', 0xa, 0 
+    msg_B3	db  'El carácter no es ninguno', 0xa, 0
   
 
 _start:
@@ -27,16 +28,38 @@ _start:
 	    call puts
         mov eax, 0x0A               ; salto de linea  
         call putchar                ; imprime salto de linea
-        jmp fin
+        jmp incisob
 
     es_mayor_o_igual: 
         mov edx, msg_A2		; edx = dirección de la cadena msg
 	    call puts
         mov eax, 0x0A               ; salto de linea  
         call putchar                ; imprime salto de linea
-        jmp fin
+        jmp incisob
 
     ; --- inciso b --- 
+
+    incisob: 
+
+    call getche
+    jmp evaluar_numero
+
+    evaluar_numero: 
+        cmp al, '0'     ; al - 48  48-48 49-48 
+        jb evaluar_letra   ; Saltar si es menor
+        cmp al, '9'     ; al - 57 
+        ja evaluar_letra    ; saltar si es mayor
+        mov edx, msg_B1
+        call puts
+        mov eax, 0x0A
+        call putchar
+        jmp fin
+
+    evaluar_letra: 
+        cmp al, '0'     ; al - 48  48-48 49-48 
+        jb evaluar_letra   ; Saltar si es menor
+        cmp al, '9'     ; al - 57 
+        ja evaluar_letra    ; saltar si es mayor
 
 
     fin:
