@@ -36,7 +36,6 @@ es_mayor_o_igual:
 	call puts                   ; imprime el mensaje msg_A2
     jmp fin
 
-
 fin:
     mov ebx, 0                  
     mov eax, 1                  
