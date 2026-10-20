@@ -6,15 +6,16 @@ section .text
     extern putchar
     global _start
 
+section .bss
+    vectorA resb 5
+    vectorB resb 5
+
 section	.data
     N equ 5
-    vectorA db 0, 0, 0, 0, 0
-    vectorB db 0, 0, 0, 0, 0
+
 
     
-;section .bss
-;    vectorA resb 5
-;    vectorB resb 5
+
 
 _start:
 
@@ -31,7 +32,10 @@ capturarVector:
     mov ecx, [N]
     mov esi, 0
 
-    pedir_vector: 
+    pedir_vector:
+
+        ;mov eax, ecx    
+        ;call pHex_dw
         push ecx
         call getche              
         pop ecx
