@@ -29,17 +29,41 @@ _start:
     mov eax, 0x0A
     call putchar 
 
+    mov ebx, vectorA
+    mov ecx, N
+    call desplegarVector
+
+    mov eax, 0x0A
+    call putchar
+    
+    mov ebx, vectorB
+    mov ecx, N
+    call desplegarVector
+
+    mov eax, 0x0A
+    call putchar
+
+    mov ebx, vectorA
+    mov edx, vectorB
+    mov ecx, N
+    call sumaVectores
+
+    mov eax, 0x0A
+    call putchar
+
+    mov ebx, vectorA
+    mov ecx, N
+    call desplegarVector
+
+
     mov ebx, 0                  
     mov eax, 1                  
     int 0x80                    
     
 capturarVector:
-
     push eax
     push ebx
     push ecx
-
-    mov ecx, N
     mov esi, 0
 
     pedir_vector:
@@ -56,9 +80,7 @@ capturarVector:
         
         mov [ebx+esi], al 
         inc esi                 
-
     loop pedir_vector
-
     pop ecx            
     pop ebx
     pop eax
@@ -68,40 +90,40 @@ capturarVector:
         jmp pedir_vector
 
     
-;desplegarVector
+desplegarVector:
+    push ebx
+    push ecx
+    mov esi, 0
+
+    imprimir_arreglo: 
+        push ecx
+        push ebx
+        mov al, [ebx+esi] 
+        add al, 48
+        call putchar            
+        pop ebx
+        pop ecx
+        inc esi                 
+    loop imprimir_arreglo
+    pop ecx
+    pop ebx
+    ret
+
+sumaVectores:
+    push eax
     push ebx 
-    mov ebp, esp
-    ;mov ecx, N
-    ;mov esi, 0
-
-    ;imprimir_arreglo: 
-    ;    mov al, [arreglo_D+esi] 
-    ;    push ecx
-    ;    call putchar            
-    ;    mov eax, 0x0A       
-    ;    call putchar            
-    ;    pop ecx
-    ;    inc esi                 
-    ;loop imprimir_arreglo
-;ret
-
-;sumaVectores:
-;    push ebx 
-;    mov ebp, esp
-;    mov ecx, N
-;    mov esi, 0
-;
-;    suma_vector: 
-;        mov al, [vectorA+esi] 
-;        mov bl, [vectorB+esi] 
-;        add al, bl
-;        mov [vectorA+esi], al
-;        push ecx
-;        call putchar            
-;        mov eax, 0x0A       
-;        call putchar            
-;        pop ecx
-;        inc esi                 
-;    loop suma_vector
-;    ret 
+    push edx
+    push ecx
+    mov esi, 0
+    suma_vector: 
+        mov al, [ebx+esi]
+        add al, [edx+esi]
+        mov [ebx+esi], al
+        inc esi                 
+    loop suma_vector
+    pop ecx
+    pop edx
+    pop ebx
+    pop eax
+    ret 
 
