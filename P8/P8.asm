@@ -19,6 +19,16 @@ _start:
     mov ecx, N
     call capturarVector
     
+    mov eax, 0x0A
+    call putchar 
+
+    mov ebx, vectorB 
+    mov ecx, N
+    call capturarVector
+
+    mov eax, 0x0A
+    call putchar 
+
     mov ebx, 0                  
     mov eax, 1                  
     int 0x80                    
