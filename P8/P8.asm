@@ -110,7 +110,6 @@ capturarVector:                     ; función capturarVector
 
     invalido:
         jmp pedir_vector
-
     
 desplegarVector:                    ; función desplegarVector
     push ebx
