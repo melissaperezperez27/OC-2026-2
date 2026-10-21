@@ -13,15 +13,10 @@ section .bss
 section	.data
     N equ 5
 
-
-    
-
-
 _start:
 
-   
-    
-    ;mov ebx, vectorA
+    mov ebx, vectorA 
+    mov ecx, N
     call capturarVector
     
     mov ebx, 0                  
@@ -29,23 +24,39 @@ _start:
     int 0x80                    
     
 capturarVector:
-    mov ecx, [N]
+
+    push eax
+    push ebx
+    push ecx
+
+    mov ecx, N
     mov esi, 0
 
     pedir_vector:
-
-        ;mov eax, ecx    
-        ;call pHex_dw
         push ecx
-        call getche              
+        push ebx
+        call getche            
+        pop ebx
         pop ecx
-        mov [vectorA+esi], al   
+
+        sub al, 48
+        jc invalido
+        cmp al, 9
+        ja invalido
+        
+        mov [ebx+esi], al 
         inc esi                 
+
     loop pedir_vector
 
-    mov esp, ebp       
-    pop ebp
+    pop ecx            
+    pop ebx
+    pop eax
     ret
+
+    invalido:
+        jmp pedir_vector
+
     
 ;desplegarVector
     push ebx 
