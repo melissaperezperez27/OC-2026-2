@@ -58,8 +58,8 @@ mystrlen:                   ; int mystrlen(char *str);
     xor eax, eax
 
     contar: 
-        mov al, [esi]  
-        cmp al, 0
+        mov cl, [esi]  
+        cmp cl, 0
         je finc
         inc esi
         inc eax
@@ -69,6 +69,7 @@ mystrlen:                   ; int mystrlen(char *str);
         pop esi
         pop ebp
         ret
+
 
 getBit:                     ; int getBit(int value, int numbit);
     push ebp
