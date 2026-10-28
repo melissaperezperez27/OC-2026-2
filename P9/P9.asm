@@ -49,10 +49,38 @@ mystrcmp:                   ; int mystrcmp(char *str1, char *str2)
         pop ebp
         ret
                
-    
+mystrlen:                   ; int mystrlen(char *str);
+    push ebp
+    mov ebp, esp
+    push esi
 
+    mov esi, [ebp + 8]      ; str1
+    xor eax, eax
 
-	     
-	
+    contar: 
+        mov al, [esi]  
+        cmp al, 0
+        je finc
+        inc esi
+        inc eax
+        jmp contar 
 
+    finc:
+        pop esi
+        pop ebp
+        ret
 
+getBit:                     ; int getBit(int value, int numbit);
+    push ebp
+    mov ebp, esp
+
+    mov eax, [ebp + 8]      ; value
+    mov ecx, [ebp + 12]     ; numbit
+
+    shr eax, cl 
+    and eax, 1
+
+    pop ebp
+    ret
+
+setBit:
