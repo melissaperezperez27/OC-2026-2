@@ -15,7 +15,6 @@ int main() {
     printf("int mystrcmp(c1, c2)\nc1 = \"melissa\"\nc2 = \"melissa\"\nresultado = %d\n", c);
     c = mystrcmp(c1, c3);
     printf("int mystrcmp(c1, c3)\nc1 = \"melissa\"\nc3 = \"jenifer\"\nresultado = %d\n\n", c);
-    
 
     int cantidad = mystrlen(c1);
     printf("int mystrlen(c1)\nc1 = \"melissa\"\nresultado = %d\n\n", cantidad);
@@ -28,6 +27,4 @@ int main() {
     int cambio = setBit(value, numbit);
     printf("int setBit(value, numbit)\nvalue = 27\nnumbit = 6\nresultado = %d\n\n", cambio);
     return 0;
-
-    
 }
