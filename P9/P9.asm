@@ -70,7 +70,6 @@ mystrlen:                   ; int mystrlen(char *str);
         pop ebp
         ret
 
-
 getBit:                     ; int getBit(int value, int numbit);
     push ebp
     mov ebp, esp
