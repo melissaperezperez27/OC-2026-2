@@ -22,11 +22,11 @@ int main() {
 
     int value = 27, numbit = 1; // 27 = 11011
     int posicion = getBit(value, numbit);
-    printf("int getBit(int value, int numbit)\nvalue = 27\nnumbit = 1\nresultado = %d\n\n", posicion);
+    printf("int getBit(value, numbit)\nvalue = 27\nnumbit = 1\nresultado = %d\n\n", posicion);
 
     numbit = 2;
     int cambio = setBit(value, numbit);
-    printf("int setBit(int value, int numbit)\nvalue = 27\nnumbit = 6\nresultado = %d\n\n", cambio);
+    printf("int setBit(value, numbit)\nvalue = 27\nnumbit = 6\nresultado = %d\n\n", cambio);
     return 0;
 
     
