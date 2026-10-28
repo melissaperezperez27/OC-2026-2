@@ -1,9 +1,9 @@
 section	.text
-    global suma
-    global mystrcmp
-    global mystrlen
-    global getBit
-    global setBit
+    global suma             ; int suma(int num1, int num2)
+    global mystrcmp         ; int mystrcmp(char *str1, char *str2)
+    global mystrlen         ; int mystrlen(char *str);
+    global getBit           ; int getBit(int value, int numbit);
+    global setBit           ; int setBit(int value, int numbit);
 
 suma:                       ; int suma(int num1, int num2)
     push ebp
