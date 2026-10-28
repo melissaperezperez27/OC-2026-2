@@ -3,7 +3,7 @@ extern int suma(int num1, int num2);
 extern int mystrcmp(char *str1, char *str2);
 extern int mystrlen(char *str);
 extern int getBit(int value, int numbit);
-//extern int setBit(int value, int numbit);
+extern int setBit(int value, int numbit);
 
 int main() {
     int n1 = 9, n2 = 6;
@@ -20,9 +20,13 @@ int main() {
     int cantidad = mystrlen(c1);
     printf("int mystrlen(c1)\nc1 = \"melissa\"\nresultado = %d\n\n", cantidad);
 
-    int value = 27, numbit = 1;
+    int value = 27, numbit = 1; // 27 = 11011
     int posicion = getBit(value, numbit);
     printf("int getBit(int value, int numbit)\nvalue = 27\nnumbit = 1\nresultado = %d\n\n", posicion);
+
+    numbit = 2;
+    int cambio = setBit(value, numbit);
+    printf("int setBit(int value, int numbit)\nvalue = 27\nnumbit = 6\nresultado = %d\n\n", cambio);
     return 0;
 
     

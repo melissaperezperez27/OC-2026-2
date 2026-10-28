@@ -73,14 +73,20 @@ mystrlen:                   ; int mystrlen(char *str);
 getBit:                     ; int getBit(int value, int numbit);
     push ebp
     mov ebp, esp
-
     mov eax, [ebp + 8]      ; value
     mov ecx, [ebp + 12]     ; numbit
-
     shr eax, cl 
     and eax, 1
-
     pop ebp
     ret
 
-setBit:
+setBit:                     ; int setBit(int value, int numbit);
+    push ebp
+    mov ebp, esp
+    mov eax, [ebp + 8]      ; value
+    mov ecx, [ebp + 12]     ; numbit
+    mov edx, 1
+    shl edx, cl
+    or eax, edx
+    pop ebp
+    ret
