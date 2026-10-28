@@ -18,6 +18,7 @@ mystrcmp:                   ; int mystrcmp(char *str1, char *str2)
     mov ebp, esp
     push esi
     push edi
+    push ebx
 
     mov esi, [ebp + 8]      ; str1
     mov edi, [ebp + 12]     ; str2
@@ -42,7 +43,7 @@ mystrcmp:                   ; int mystrcmp(char *str1, char *str2)
         jmp fin
 
     fin:
-
+        pop ebx
         pop edi
         pop esi
         pop ebp
