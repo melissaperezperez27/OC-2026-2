@@ -31,7 +31,7 @@ mystrcmp:                   ; int mystrcmp(char *str1, char *str2)
         je iguales
         inc esi
         inc edi
-        loop comprobar 
+        jmp comprobar 
 
     diferentes:
         mov eax, 1
@@ -42,7 +42,8 @@ mystrcmp:                   ; int mystrcmp(char *str1, char *str2)
         jmp fin
 
     fin:
-        pop ecx
+
+        pop edi
         pop esi
         pop ebp
         ret
