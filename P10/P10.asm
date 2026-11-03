@@ -72,22 +72,22 @@ my_putchar:
 pBin32b: 
     push ebp
     mov ebp, esp
-    mov bx, [ebp + 12]   
-    mov ecx, 16
-    verificarBit16:
-        shl bx, 1
-        jc imprimirUno16
-        jnc imprimirCero16
-            imprimirUno16:
+    mov ebx, [ebp + 8]   
+    mov ecx, 32
+    verificarBit32:
+        shl ebx, 1
+        jc imprimirUno32
+        jnc imprimirCero32
+            imprimirUno32:
                 mov al, '1'
                 call my_putchar
-                jmp fin16
-            imprimirCero16: 
+                jmp fin32
+            imprimirCero32: 
                  mov al, '0'
                 call my_putchar
-                jmp fin16
-         fin16:
-        loop verificarBit16
+                jmp fin32
+         fin32:
+        loop verificarBit32
     pop esp
     pop ebp
     ret

@@ -8,7 +8,7 @@ extern void pBin64b(int dato);
 int main() {
     int bits8 = 8, bits16 =16;
     printf("El número %d en binario es \n", bits8);
-    pBin16b(8);
+    pBin32b(255);
     printf("\n\n");
     return 0;
 }
