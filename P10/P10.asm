@@ -69,27 +69,50 @@ my_putchar:
 ;    pop ebp
 ;    ret
 
-pBin32b: 
+;pBin32b: 
+;    push ebp
+;    mov ebp, esp
+;    mov ebx, [ebp + 8]   
+;    mov ecx, 32
+;    verificarBit32:
+;        shl ebx, 1
+;        jc imprimirUno32
+;        jnc imprimirCero32
+;            imprimirUno32:
+;                mov al, '1'
+;                call my_putchar
+;                jmp fin32
+;            imprimirCero32: 
+;                 mov al, '0'
+;                call my_putchar
+;                jmp fin32
+;         fin32:
+;        loop verificarBit32
+;    pop esp
+;    pop ebp
+;    ret
+
+pBin64b: 
     push ebp
     mov ebp, esp
-    mov ebx, [ebp + 8]   
-    mov ecx, 32
-    verificarBit32:
+    mov ebx, [ebp + 8]
+    mov edx, [ebp + 12]     
+    mov ecx, 64
+    verificarBit64:
         shl ebx, 1
-        jc imprimirUno32
-        jnc imprimirCero32
-            imprimirUno32:
+        jc imprimirUno64
+        jnc imprimirCero64
+            imprimirUno64:
                 mov al, '1'
                 call my_putchar
-                jmp fin32
-            imprimirCero32: 
+                jmp fin64
+            imprimirCero64: 
                  mov al, '0'
                 call my_putchar
-                jmp fin32
-         fin32:
-        loop verificarBit32
+                jmp fin64
+         fin64:
+        loop verificarBit64
     pop esp
     pop ebp
     ret
-
 
