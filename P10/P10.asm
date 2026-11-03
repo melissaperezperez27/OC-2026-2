@@ -100,33 +100,33 @@ pBin64b:
     mov ecx, 32
     verificarBitAlto:
         shl ebx, 1
-        jc imprimirUno64
-        jnc imprimirCero64
-            imprimirUno64:
+        jc imprimirUnoAlto
+        jnc imprimirCeroAlto
+            imprimirUnoAlto:
                 mov al, '1'
                 call my_putchar
-                jmp fin64
-            imprimirCero64: 
+                jmp finAlto
+            imprimirCeroAlto: 
                  mov al, '0'
                 call my_putchar
-                jmp fin64
-         fin64:
+                jmp finAlto
+         finAlto:
         loop verificarBitAlto
-        
+
     mov ecx, 32
     verificarBitBajo:
-        shl ebx, 1
-        jc imprimirUno64
-        jnc imprimirCero64
-            imprimirUno64:
+        shl edx, 1
+        jc imprimirUnoBajo
+        jnc imprimirCeroBajo
+            imprimirUnoBajo:
                 mov al, '1'
                 call my_putchar
-                jmp fin64
-            imprimirCero64: 
+                jmp finBajo
+            imprimirCeroBajo: 
                  mov al, '0'
                 call my_putchar
-                jmp fin64
-         fin64:
+                jmp finBajo
+         finBajo:
         loop verificarBitBajo
     pop esp
     pop ebp
