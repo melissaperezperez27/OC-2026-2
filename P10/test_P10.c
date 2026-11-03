@@ -6,6 +6,9 @@ extern void pBin64b(int dato);
 
 
 int main() {
-    pBin8b(27);
+    int bits8 = 8, bits16 =16;
+    printf("El número %d en binario es \n", bits8);
+    pBin16b(8);
+    printf("\n\n");
     return 0;
 }

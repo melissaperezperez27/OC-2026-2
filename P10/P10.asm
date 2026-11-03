@@ -5,37 +5,6 @@ section	.text
     global pBin34b
     global my_putchar
 
-pBin8b:
-    
-    push ebp
-    mov ebp, esp
-    mov al, [ebp + 8]
-    
-    mov ecx, 7
-    verificarBit8:
-        shl al, 1
-        
-        jc imprimirUno
-        jnc imprimirCero
-
-
-            imprimirUno:
-                mov bl, '1'
-                call my_putchar
-                jmp fin
-
-            imprimirCero: 
-                mov bl, '0'
-                call my_putchar
-                jmp fin
-
-        fin:
-        loop verificarBit8
-    pop esp
-    pop ebp
-    ret
-
-
 my_putchar:
     pushad                 ; salvar todos los registros
     push eax              ; salvar EAX -- meter el caracter a la pila
@@ -47,3 +16,80 @@ my_putchar:
     pop eax                ; recuperar EXA 
     popad                  ; recuperar todos los registros
     ret
+
+;pBin8b: 
+;    push ebp
+;    mov ebp, esp
+;    push ebx
+;    mov bl, [ebp + 8]
+    
+;    mov ecx, 8
+;    verificarBit8:
+;        shl bl, 1
+;        jc imprimirUno
+;        jnc imprimirCero
+;            imprimirUno:
+;                mov al, '1'
+;                call my_putchar
+;                jmp fin
+
+;            imprimirCero: 
+;                mov al, '0'
+;                call my_putchar
+;                jmp fin
+
+;        fin:
+;        loop verificarBit8
+;    pop ebx
+;    pop esp
+;    pop ebp
+
+;    ret
+
+; pBin16b: 
+;    push ebp
+;    mov ebp, esp
+;    mov bx, [ebp + 12]   
+;    mov ecx, 16
+;    verificarBit16:
+;        shl bx, 1
+;        jc imprimirUno16
+;        jnc imprimirCero16
+;            imprimirUno16:
+;                mov al, '1'
+;                call my_putchar
+;                jmp fin16
+;            imprimirCero16: 
+;                 mov al, '0'
+;                call my_putchar
+;                jmp fin16
+;         fin16:
+;        loop verificarBit16
+;    pop esp
+;    pop ebp
+;    ret
+
+pBin32b: 
+    push ebp
+    mov ebp, esp
+    mov bx, [ebp + 12]   
+    mov ecx, 16
+    verificarBit16:
+        shl bx, 1
+        jc imprimirUno16
+        jnc imprimirCero16
+            imprimirUno16:
+                mov al, '1'
+                call my_putchar
+                jmp fin16
+            imprimirCero16: 
+                 mov al, '0'
+                call my_putchar
+                jmp fin16
+         fin16:
+        loop verificarBit16
+    pop esp
+    pop ebp
+    ret
+
+
