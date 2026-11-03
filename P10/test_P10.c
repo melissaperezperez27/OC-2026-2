@@ -6,8 +6,6 @@ extern void pBin64b(int dato);
 
 
 int main() {
-    pBin8b(11);
-    
-    
+    pBin8b(27);
     return 0;
 }

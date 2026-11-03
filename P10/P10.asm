@@ -1,13 +1,38 @@
 section	.text
-    global pBin8b           
+    global pBin8b       
     global pBin16b   
     global pBin32b
     global pBin34b
+    global my_putchar
 
 pBin8b:
-    push ebp
-    mov epb, esp
     
+    push ebp
+    mov ebp, esp
+    mov al, [ebp + 8]
+    
+    mov ecx, 7
+    verificarBit8:
+        shl al, 1
+        cmp al, 1
+        jc imprimirUno
+        jnc imprimirCero
+
+
+            imprimirUno:
+                mov bl, '1'
+                call my_putchar
+                jmp fin
+
+            imprimirCero: 
+                mov bl, '0'
+                call my_putchar
+                jmp fin
+
+        fin:
+        loop verificarBit8
+    pop esp
+    pop ebp
     ret
 
 
@@ -21,4 +46,4 @@ my_putchar:
     int 80h                 ; llamar al sistema (escritura al standard output -- pantalla)
     pop eax                ; recuperar EXA 
     popad                  ; recuperar todos los registros
-     ret
+    ret
