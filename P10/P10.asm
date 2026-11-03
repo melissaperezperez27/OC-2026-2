@@ -97,8 +97,8 @@ pBin64b:
     mov ebp, esp
     mov ebx, [ebp + 8]
     mov edx, [ebp + 12]     
-    mov ecx, 64
-    verificarBit64:
+    mov ecx, 32
+    verificarBitAlto:
         shl ebx, 1
         jc imprimirUno64
         jnc imprimirCero64
@@ -111,7 +111,23 @@ pBin64b:
                 call my_putchar
                 jmp fin64
          fin64:
-        loop verificarBit64
+        loop verificarBitAlto
+        
+    mov ecx, 32
+    verificarBitBajo:
+        shl ebx, 1
+        jc imprimirUno64
+        jnc imprimirCero64
+            imprimirUno64:
+                mov al, '1'
+                call my_putchar
+                jmp fin64
+            imprimirCero64: 
+                 mov al, '0'
+                call my_putchar
+                jmp fin64
+         fin64:
+        loop verificarBitBajo
     pop esp
     pop ebp
     ret
