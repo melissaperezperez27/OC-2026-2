@@ -14,7 +14,7 @@ pBin8b:
     mov ecx, 7
     verificarBit8:
         shl al, 1
-        cmp al, 1
+        
         jc imprimirUno
         jnc imprimirCero
 
