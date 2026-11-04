@@ -2,7 +2,7 @@
 extern void pBin8b(int dato);
 extern void pBin16b(int dato);
 extern void pBin32b(int dato);
-extern void pBin64b(int dato);
+extern void pBin64b(long long dato);
 
 
 int main() {
@@ -14,9 +14,7 @@ int main() {
     printf("\nEl número %d en binario (32 bits) es \n", num_bits32);
     pBin32b(num_bits32);
     printf("\nEl número %d en binario (64 bits) es \n", num_bits64);
-    pBin32b(num_bits64);
+    pBin64b(num_bits64);
     printf("\n");
     return 0;
 }
-
-
