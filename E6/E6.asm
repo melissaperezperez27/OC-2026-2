@@ -72,6 +72,33 @@ _start:
     mov eax, 10
     call putchar
 
+    shr ebx, 5
+    mov eax, ebx
+    call pBin_dw
+    mov eax, 10
+    call putchar
+
+    shl cx, 3
+    mov ax, cx
+    call pBin_w
+    mov eax, 10
+    call putchar
+
+    pop esi
+    mov eax, esi
+    call pBin_dw
+    mov eax, 10
+    call putchar
+
+    mov eax, esi
+    mov ebx, esi
+    shl eax, 3
+    shl ebx, 1
+    add eax, ebx
+    call pBin_dw
+    mov eax, 10
+    call putchar
+
 
 
     ;0001
