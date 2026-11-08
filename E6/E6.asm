@@ -99,8 +99,6 @@ _start:
     mov eax, 10
     call putchar
 
-
-
     ;0001
     ;0010
     ;0011
