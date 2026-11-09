@@ -1,12 +1,28 @@
 %include "../LIB/pc_iox.inc"
 
-;section .bss
-;    arreglo resw 10
+section .bss
+    ;arreglo resb 6
+    vectorA resb 5
+    vectorB resb 5
+
+section .data
+    msg_pedir db "Pedir vector: ", 10, 0
+    msg_imprimir db "Vector: ", 10, 0
+    msg_menor db "Es menor", 10, 0
+    msg_mayor db "Es mayor", 10, 0
+    msg_invalido db "Es invalido", 10, 0
+    N equ 5
+
 section .text
     extern getche
 	global _start
 
 _start:
+    mov edx, msg_pedir
+    call puts
+    mov ebx, vectorA
+    mov ecx N
+    call pedir_vector
     ;mov cx, 4
     ;mov bx, 1
     ;renglones:
@@ -49,11 +65,47 @@ _start:
     ;    pop cx
     ;    loop renglon
 
+    ;mov ecx, 6
+    ;mov esi, 0
+    ;pedir_vector:
+    ;    call getche
+    ;    mov [arreglo+esi], eax
+    ;    inc esi
+    ;    mov eax, 10
+    ;    call putchar
+    ;    loop pedir_vector
+
+    ;mov ecx, 6
+    ;mov esi, 5
+    ;imprimir_vector:
+    ;    mov eax, [arreglo+esi]
+    ;    call putchar
+    ;    mov eax, 10
+    ;    call putchar
+    ;    dec esi
+    ;    loop imprimir_vector
+
 
     mov ebx, 0
     mov eax, 1
     int 0x80
 
+
+pedir_vector:
+    push ebx
+    push ecx
+    pedir:  
+        call getche
+        cmp al, '0' ;al-0
+        jb menor
+        ja mayor
+
+            menor:
+            
+        loop pedir
+    pop ebx
+    pop ecx
+    ret
 
 ; sudo apt-get update
 ; sudo apt-get install nasm
