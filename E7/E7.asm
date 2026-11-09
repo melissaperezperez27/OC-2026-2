@@ -21,8 +21,16 @@ _start:
     mov edx, msg_pedir
     call puts
     mov ebx, vectorA
-    mov ecx N
+    mov ecx, N
     call pedir_vector
+    mov eax, 10
+    call putchar
+    mov edx, msg_imprimir
+    call puts
+    mov ebx, vectorA
+    mov ecx, N
+    call imprimir_vector
+
     ;mov cx, 4
     ;mov bx, 1
     ;renglones:
@@ -94,19 +102,40 @@ _start:
 pedir_vector:
     push ebx
     push ecx
+    mov esi, 0
     pedir:  
         call getche
         cmp al, '0' ;al-0
-        jb menor
-        ja mayor
+        jb invalido
+        cmp al, '9'
+        ja invalido
+        mov [ebx+esi], eax
+        inc esi
 
-            menor:
-            
-            
+
         loop pedir
-    pop ebx
+
     pop ecx
+    pop ebx
     ret
+
+    invalido:
+        jmp pedir_vector
+    
+    imprimir_vector:
+        push ebx
+        push ecx
+        mov esi, 0
+        imprimir:
+            mov eax, [ebx+esi]
+            call putchar
+            mov eax, 10
+            call putchar
+            inc esi
+            loop imprimir
+
+        pop ecx
+        pop ebx
 
 ; sudo apt-get update
 ; sudo apt-get install nasm
