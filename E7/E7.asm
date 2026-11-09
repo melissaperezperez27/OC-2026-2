@@ -38,11 +38,14 @@ _start:
         letras:
             mov ax, dx
             call putchar
-            inc ax
+            inc dx
             loop letras
         mov eax, 10
+        
         call putchar
+        dec bx
         pop dx
+
         pop cx
         loop renglon
 
