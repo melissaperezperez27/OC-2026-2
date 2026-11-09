@@ -102,6 +102,7 @@ pedir_vector:
 
             menor:
             
+            
         loop pedir
     pop ebx
     pop ecx
