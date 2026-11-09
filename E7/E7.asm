@@ -28,26 +28,26 @@ _start:
     ;    inc bx
     ;    loop renglones
 
-    mov cx, 5
-    mov bx, 5
-    renglon:
-        push cx
-        mov cx, bx
-        mov dx, 'A'
-        push dx
-        letras:
-            mov ax, dx
-            call putchar
-            inc dx
-            loop letras
-        mov eax, 10
-        
-        call putchar
-        dec bx
-        pop dx
-
-        pop cx
-        loop renglon
+    ;mov cx, 5
+    ;mov bx, 5
+    ;renglon:
+    ;    push cx
+    ;    mov cx, bx
+    ;    mov dx, 'A'
+    ;    push dx
+    ;    letras:
+    ;        mov ax, dx
+    ;        call putchar
+    ;        inc dx
+    ;        loop letras
+    ;    mov eax, 10
+    ;   
+    ;    call putchar
+    ;    dec bx
+    ;    pop dx
+    ;
+    ;    pop cx
+    ;    loop renglon
 
 
     mov ebx, 0
