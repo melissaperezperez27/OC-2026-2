@@ -18,33 +18,35 @@ str_len:
     pop ebp
     ret
 
-str_mid:
-    push ebp
-    mov ebp, esp
-    push ebx
-    mov ebx, [ebp + 8] ; salida 
-    mov edx, [ebp + 12] ; entrada
-    mov al, [ebp + 16] ; inicio 5
-    mov ah, [ebp + 20] ; fin 9
-    cmp ah, al 
-    jb no_valido
-    mov cl, ah
-    mov esi, al
-    copiarCaracteres:
-        mov ah, [edx+esi]
-        mov [ebx+esi], ah
-        inc esi
-        loop copiarCaracteres
-    pop ebx
-    pop ebp
-    mov eax, edx
-    ret
+;str_mid:
+;    push ebp
+;    mov ebp, esp
+;    push ebx
+;    mov ebx, [ebp + 8] ; salida 
+;    mov edx, [ebp + 12] ; entrada
+;    mov cl, [ebp + 16] ; inicio 5
+;    mov ch, [ebp + 20] ; fin 9
+;    cmp ch, cl 
+;    jb no_valido
+;    mov 
+;    sub ch, cl
+;    mov cl, al
+;    copiarCaracteres:
+;        mov ah, [edx+esi]
+;        mov [ebx+esi], ah
+;        inc esi
+;        loop copiarCaracteres
+;    pop ebx
+;    pop ebp
+;    mov eax, edx
+;    ret    
+;no_valido:
+;    pop ebx
+;    pop ebp
+;    ret
 
-    
-no_valido:
-    pop ebx
-    pop ebp
-    ret
+
+
 
 ; sudo apt update
 
