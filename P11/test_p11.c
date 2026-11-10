@@ -5,8 +5,10 @@ int clrBit( int value, int nbit);
 int main(){
     char cadena1[27] = "holamundo";
     char cadena2[27] = "holabola";
+    int n = 27;
     printf("Longitud: %d\n", str_len(cadena1));
     str_mid(cadena1, cadena2, 5, 9);
     printf("\n%s", cadena1);
+    printf("Valor %d, Nuevo valor: %d\n", str_len(cadena1));
     return 0;
 }
