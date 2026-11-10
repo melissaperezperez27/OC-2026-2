@@ -32,7 +32,6 @@ pBin8b:
                 mov al, '1'
                 call my_putchar
                 jmp fin
-
             imprimirCero: 
                 mov al, '0'
                 call my_putchar
