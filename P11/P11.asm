@@ -22,18 +22,23 @@ str_mid:
     push ebp
     mov ebp, esp
     push ebx
-    mov ebx, [ebp + 8]
-    mov edx, [ebp + 12]
-    mov al, [ebp + 16] ; 5
-    mov ah, [ebp + 20] ; 9
+    mov ebx, [ebp + 8] ; salida 
+    mov edx, [ebp + 12] ; entrada
+    mov al, [ebp + 16] ; inicio 5
+    mov ah, [ebp + 20] ; fin 9
     cmp ah, al 
     jb no_valido
-    mov cx, ah
+    mov cl, ah
+    mov esi, al
     copiarCaracteres:
-        
+        mov ah, [edx+esi]
+        mov [ebx+esi], ah
+        inc esi
         loop copiarCaracteres
-
-
+    pop ebx
+    pop ebp
+    mov eax, edx
+    ret
 
     
 no_valido:

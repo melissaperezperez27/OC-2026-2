@@ -6,6 +6,7 @@ int main(){
     char cadena1[27] = "holamundo";
     char cadena2[27] = "holabola";
     printf("Longitud: %d\n", str_len(cadena1));
-    // str_mid(cadena1, cadena2, 5, 9);
+    str_mid(cadena1, cadena2, 5, 9);
+    printf("\n%s", cadena1);
     return 0;
 }
