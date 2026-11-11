@@ -18,35 +18,60 @@ str_len:
     pop ebp
     ret
 
-;str_mid:
-;    push ebp
-;    mov ebp, esp
-;    push ebx
-;    mov ebx, [ebp + 8] ; salida 
-;    mov edx, [ebp + 12] ; entrada
-;    mov cl, [ebp + 16] ; inicio 5
-;    mov ch, [ebp + 20] ; fin 9
-;    cmp ch, cl 
-;    jb no_valido
-;    mov 
-;    sub ch, cl
-;    mov cl, al
-;    copiarCaracteres:
-;        mov ah, [edx+esi]
-;        mov [ebx+esi], ah
-;        inc esi
-;        loop copiarCaracteres
-;    pop ebx
-;    pop ebp
-;    mov eax, edx
-;    ret    
-;no_valido:
-;    pop ebx
-;    pop ebp
-;    ret
+str_mid:
+    push ebp
+    mov ebp, esp
+    push ebx
+    push esi
+    push edi
 
+    mov edi, [ebp + 8]   ; str_out (destino)
+    mov esi, [ebp + 12]  ; str1_in (origen)
+    mov ecx, [ebp + 16]  ; start (inicio)
+    mov edx, [ebp + 20]  ; end (fin)
+    
+    cmp edx, ecx
+    jb no_valido
+    sub edx, ecx
+    inc edx   
 
+    add esi, ecx
+    
+    copiarCaracteres:
+        mov al, [esi]       
+        test al, al          
+        jz terminar_cadena   
+        mov [edi], al
+        inc esi
+        inc edi
+        dec edx 
+        jnz copiarCaracteres
 
+    terminar_cadena:
+        mov byte [edi], 0
+
+    no_valido:
+        pop edi
+        pop esi
+        pop ebx
+    
+        mov esp, ebp
+        pop ebp
+        ret
+
+clrBit:
+    push ebp
+    mov ebp, esp
+    push ebx
+    push esi
+    mov ebx, [ebp + 8] ; value
+    mov esi, [ebp + 12] ; nbit
+    and ebx, esi
+    mov eax, ebx
+
+    pop ebx
+    pop ebp
+    ret
 
 ; sudo apt update
 
