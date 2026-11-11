@@ -62,14 +62,12 @@ str_mid:
 clrBit:
     push ebp
     mov ebp, esp
-    push ebx
-    push esi
-    mov ebx, [ebp + 8] ; value
-    mov esi, [ebp + 12] ; nbit
-    and ebx, esi
-    mov eax, ebx
-
-    pop ebx
+    mov eax, [ebp + 8] ; value
+    mov ecx, [ebp + 12] ; nbit
+    mov edx, 1
+    shl edx, cl
+    xor edx, 0xffffffff
+    and eax, edx
     pop ebp
     ret
 
