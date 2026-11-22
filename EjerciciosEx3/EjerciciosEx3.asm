@@ -1,7 +1,7 @@
 section .text
     global NotBit32b
     global XchgBits
-
+	global str_cnt_chr
 NotBit32b:
     push ebp
     mov ebp, esp
@@ -56,6 +56,30 @@ XchgBits:
 	pop ebx
 	pop ebp
 	ret
+
+str_cnt_chr:
+	push ebp
+	mov ebp, esp
+	push ebx 
+	push esi
+	mov eax, [ebp+8]
+	mov edx, [ebp+12]
+
+	@@While: cmp al, 0
+		jne  @@End_While
+		mov ebx, [eax+ecx]
+		cmp edx, ebx
+		jne noadd
+			inc esi
+		noadd:
+		inc ecx
+		jmp @@While
+	@@End_While:
+
+	pop esi
+	pop ebx
+	pop ebp
+
 
 ; sudo apt update
 
