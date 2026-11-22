@@ -18,7 +18,7 @@ int main() {
     int numres = XchgBits(num, n1, n2);
     printf("\n%d", numres);
 
-    char cadena[15] = "Hola bolaa";
+    char cadena[15] = "aoaoa";
     int cts = str_cnt_chr(cadena, 'a');
     printf("\n%d\n", cts);
     return 0;
