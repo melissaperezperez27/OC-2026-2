@@ -12,7 +12,7 @@ int main() {
     int res1 = NotBit32b(x1, 1);
     printf("1. NotBit32b(%d, 1) = %d (Esperado: 0x00123454)\n", x1, res1);
 
-    int num = 1193046, n1 =1, n2=3;
+    int num = 14, n1 =0, n2=1;
     int numres = XchgBits(num, n1, n2);
     printf("\n%d", numres);
     return 0;

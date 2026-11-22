@@ -15,26 +15,69 @@ NotBit32b:
 
 
 
+
 XchgBits: 
 	push ebp
 	mov ebp, esp
-	mov eax, [ebp+8] ; 0000 0000 0000 1111 1101
-	mov al, [ebp+12] ;1
-	mov ah, [ebp+16] ;3
-	mov dl, [eax+al] ; eax+1 (el valor de la posición 1)
-	mov dh, [eax+ah] ; eax+3 (el valor de la posición 3)
-	mov [eax+al], dl en la posición 1, poner el valor de la posición 3
-	mov [eax+ah], dh 
+	push ebx
+	push esi
+	
+	mov eax, [ebp+8] ; original 14 = 1110
+	mov bl, [ebp+12] ; posicion 0
+	mov bh, [ebp+16] ; posicion 2
+	
+	mov cl, bl
+	ror eax, cl 
+	mov edx, eax ; 1110
+	and edx, 1
+	rol eax, cl ; 1110
 
+	mov cl, bh
+	ror eax, cl
+	mov esi, eax
+	and esi, 1
+	rol eax, cl
+
+	cmp edx, esi
+	je nocambio ; iguales
+
+	mov cl, bl
+	ror eax, cl
+	xor eax, 1
+	rol eax, cl
+
+	mov cl, bh
+	ror eax, cl
+	xor eax, 1
+	rol eax, cl
+	
+	nocambio:
+	pop esi
+	pop ebx
 	pop ebp
 	ret
 
 ; sudo apt update
 
 ; sudo apt install gcc-multilib nasm -y
-; cd P10
+; cd EjerciciosEx3
 ; nasm -f elf32 EjerciciosEx3.asm -o EjerciciosEx3.o
 ; gcc -m32 -c EEx3.c -o EEx3.o
 ; gcc -m32 EEx3.o EjerciciosEx3.o -o EEx3
 ; ./EEx3
-
+; 0000 - 0
+; 0001
+; 0010
+; 0011
+; 0100
+; 0101
+; 0110
+; 0111
+; 1000
+; 1001
+; 1010
+; 1011
+; 1100
+; 1101
+; 1110
+; 1111
