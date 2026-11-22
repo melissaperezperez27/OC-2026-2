@@ -15,6 +15,20 @@ NotBit32b:
 
 
 
+XchgBits: 
+	push ebp
+	mov ebp, esp
+	mov eax, [ebp+8] ; 0000 0000 0000 1111 1101
+	mov al, [ebp+12] ;1
+	mov ah, [ebp+16] ;3
+	mov dl, [eax+al] ; eax+1 (el valor de la posición 1)
+	mov dh, [eax+ah] ; eax+3 (el valor de la posición 3)
+	mov [eax+al], dl en la posición 1, poner el valor de la posición 3
+	mov [eax+ah], dh 
+
+	pop ebp
+	ret
+
 ; sudo apt update
 
 ; sudo apt install gcc-multilib nasm -y
