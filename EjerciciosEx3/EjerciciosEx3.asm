@@ -129,7 +129,6 @@ shr_s:
 
 
 ; sudo apt update
-
 ; sudo apt install gcc-multilib nasm -y
 ; cd EjerciciosEx3
 ; nasm -f elf32 EjerciciosEx3.asm -o EjerciciosEx3.o
