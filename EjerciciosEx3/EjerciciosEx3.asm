@@ -2,6 +2,8 @@ section .text
     global NotBit32b
     global XchgBits
 	global str_cnt_chr
+	global isPrime
+
 NotBit32b:
     push ebp
     mov ebp, esp
@@ -12,8 +14,6 @@ NotBit32b:
     rol eax, cl 
     pop ebp
     ret
-
-
 
 
 XchgBits: 
@@ -57,18 +57,59 @@ XchgBits:
 	pop ebp
 	ret
 
+
 str_cnt_chr:
 	push ebp
 	mov ebp, esp
-	mov edx, [ebp+8] ; cadena
-	mov
+	push esi
+	push ebx
+	mov esi, [ebp+8] ; cadena
+	mov cl, [ebp+12] ; caracter
+	mov ebx, 0
+	mov eax, 0
 	@@Do_while:	
-	cmp al, 0
-	je @@Do_while
-
+	mov dl, [esi+ebx]
+	cmp dl, cl
+	jne noequal 
+	inc eax
+	noequal:
+	inc ebx
+	cmp dl, 0
+	jne @@Do_while
+	pop ebx
+	pop esi
 	pop ebp
 	ret
 
+
+isPrime:
+	push ebp
+	mov ebp, esp
+	mov eax, [ebp+8] ; 11
+	mov cx, 2
+	cmp eax, 1
+	je noprimo
+	cmp eax, 0
+	je noprimo
+	buscar:
+	imul cx, cx
+	cmp ecx, eax ; i*i > n
+	ja siprimo
+	div cx
+	cmp edx, 0
+	je noprimo
+	inc ecx
+	jmp buscar
+	
+	noprimo:
+	pop ebp
+	mov eax, 0
+	ret
+
+	siprimo:
+	pop ebp
+	mov eax, 1
+	ret
 
 ; sudo apt update
 

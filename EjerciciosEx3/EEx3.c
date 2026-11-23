@@ -8,6 +8,8 @@ int XchgBits(int dato, int numbit1, int numbit2);
 
 int str_cnt_chr(char *str, char letra);
 
+int isPrime(int dato);
+
 int main() {
     // 1. Prueba NotBit32b
     int x1 = 15;
@@ -18,8 +20,11 @@ int main() {
     int numres = XchgBits(num, n1, n2);
     printf("\n%d", numres);
 
-    char cadena[15] = "aoaoa";
-    int cts = str_cnt_chr(cadena, 'a');
+    char cadena[15] = "hola mundo";
+    int cts = str_cnt_chr(cadena, 'o');
     printf("\n%d\n", cts);
+
+    int primo = isPrime(3);
+    printf("\n%d\n", primo);
     return 0;
 }
