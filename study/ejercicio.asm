@@ -2,25 +2,33 @@ section .text
     global ClearBitRange
 
 ClearBitRange:
-
     push ebp 
     mov ebp, esp 
     push ebx
-
-    mov eax, [ebp+8] ; num 
-    mov ecx, [ebp+12] ; inicio
-    mov ebx, [ebp+16] ; fin
-
-    ciclo:
     
-    ror eax, ecx
-    mov edx, 1
-    not edx
+    mov eax, [ebp+8] ; num 
+    mov cl, [ebp+12] ; inicio 1
+    mov bl, [ebp+16] ; fin 4
+
+    mov edx, 1 ; 0001
+    not edx     ; 1110
+
+    ror eax, cl ; 11111111 11111111 11111111 11111111
+   
+    ciclo:
+    cmp bl, cl ; 4 - 1
+    je salir
+
+    
     and eax, edx
-    inc ecx 
+    inc cl
+    ror eax, 1
     jmp ciclo
 
     salir:
+    mov cl, bl
+    rol eax, cl
+
     pop ebx
     pop ebp 
     ret
