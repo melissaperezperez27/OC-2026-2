@@ -3,6 +3,7 @@ section .text
     global XchgBits
 	global str_cnt_chr
 	global isPrime
+	global shr_s
 
 NotBit32b:
     push ebp
@@ -111,6 +112,20 @@ isPrime:
 	mov eax, 1
 	ret
 
+shr_s:
+	push ebp
+	mov ebp, esp
+	mov eax, [ebp+8] ; 11111111-11111111-11111111-10000010
+	mov edx, eax
+	shr eax, 1 		; 01111111-11111111-11111111-11000001
+	rol edx, 1
+	and edx, 1
+	rol eax, 1
+	add eax, edx
+	ror eax, 1
+	
+	pop ebp
+	ret
 ; sudo apt update
 
 ; sudo apt install gcc-multilib nasm -y

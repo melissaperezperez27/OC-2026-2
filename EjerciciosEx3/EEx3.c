@@ -9,9 +9,9 @@ int XchgBits(int dato, int numbit1, int numbit2);
 int str_cnt_chr(char *str, char letra);
 
 int isPrime(int dato);
+int shr_s(int dato);
 
 int main() {
-    // 1. Prueba NotBit32b
     int x1 = 15;
     int res1 = NotBit32b(x1, 1);
     printf("1. NotBit32b(%d, 1) = %d (Esperado: 0x00123454)\n", x1, res1);
@@ -26,5 +26,8 @@ int main() {
 
     int primo = isPrime(3);
     printf("\n%d\n", primo);
+
+    int sdr_ = shr_s(-50);
+    printf("\n%d\n", sdr_);
     return 0;
 }
