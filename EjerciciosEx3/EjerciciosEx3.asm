@@ -23,15 +23,15 @@ XchgBits:
 	push ebx
 	push esi
 	
-	mov eax, [ebp+8] ; original 14 = 1110
-	mov bl, [ebp+12] ; posicion 0
-	mov bh, [ebp+16] ; posicion 2
+	mov eax, [ebp+8] ; original 
+	mov bl, [ebp+12] ; posicion 
+	mov bh, [ebp+16] ; posicion 
 	
 	mov cl, bl
 	ror eax, cl 
-	mov edx, eax ; 1110
+	mov edx, eax 
 	and edx, 1
-	rol eax, cl ; 1110
+	rol eax, cl 
 
 	mov cl, bh
 	ror eax, cl
@@ -86,7 +86,7 @@ str_cnt_chr:
 isPrime:
 	push ebp
 	mov ebp, esp
-	mov eax, [ebp+8] ; 11
+	mov eax, [ebp+8]
 	mov cx, 2
 	cmp eax, 1
 	je noprimo
@@ -115,9 +115,9 @@ isPrime:
 shr_s:
 	push ebp
 	mov ebp, esp
-	mov eax, [ebp+8] ; 11111111-11111111-11111111-10000010
+	mov eax, [ebp+8] 
 	mov edx, eax
-	shr eax, 1 		; 01111111-11111111-11111111-11000001
+	shr eax, 1 		
 	rol edx, 1
 	and edx, 1
 	rol eax, 1
@@ -126,6 +126,8 @@ shr_s:
 	
 	pop ebp
 	ret
+
+
 ; sudo apt update
 
 ; sudo apt install gcc-multilib nasm -y
@@ -134,19 +136,3 @@ shr_s:
 ; gcc -m32 -c EEx3.c -o EEx3.o
 ; gcc -m32 EEx3.o EjerciciosEx3.o -o EEx3
 ; ./EEx3
-; 0000 - 0
-; 0001
-; 0010
-; 0011
-; 0100
-; 0101
-; 0110
-; 0111
-; 1000
-; 1001
-; 1010
-; 1011
-; 1100
-; 1101
-; 1110
-; 1111

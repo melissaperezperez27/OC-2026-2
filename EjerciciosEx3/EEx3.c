@@ -1,28 +1,38 @@
 #include <stdio.h>
+#include <stdint.h>
 
-int NotBit32b(int dato, int numbit);
-int XchgBits(int dato, int numbit1, int numbit2);
-int str_cnt_chr(char *str, char letra);
-int isPrime(int dato);
-int shr_s(int dato);
+extern uint32_t NotBit32b(uint32_t dato, uint8_t numbit);
+extern uint32_t XchgBits(uint32_t dato, uint8_t numbit1, uint8_t numbit2);
+extern int str_cnt_chr(char *str, char letra);
+extern uint8_t isPrime(uint32_t dato);
+extern int shr_s(int dato);
 
 int main() {
-    int x1 = 15;
-    int res1 = NotBit32b(x1, 1);
-    printf("1. NotBit32b(%d, 1) = %d (Esperado: 0x00123454)\n", x1, res1);
+    // 1. NotBit32b
+    int dato = 15;
+    int numbit1 = 1;
+    int resultado1 = NotBit32b(dato, numbit1);
+    printf("Función: uint32_t NotBit32b(uint32_t dato, uint8_t numbit)\ndato: %d\nnumbit: %d\nresultado: %d\n\n", dato, numbit1, resultado1);
 
-    int num = 14, n1 =0, n2=1;
+    // 2. XchgBits
+    int num = 14, n1 = 0, n2 = 1;
     int numres = XchgBits(num, n1, n2);
-    printf("\n%d", numres);
+    printf("Función: uint32_t XchgBits(uint32_t dato, uint8_t numbit1, uint8_t numbit2)\ndato: %d\nnumbit1: %d\nnumbit2: %d\nresultado: %d\n\n", num, n1, n2, numres);
 
+    // 3. str_cnt_chr
     char cadena[15] = "hola mundo";
-    int cts = str_cnt_chr(cadena, 'o');
-    printf("\n%d\n", cts);
+    char letra = 'o';
+    int cts = str_cnt_chr(cadena, letra);
+    printf("Función: int str_cnt_chr(char *str, char letra)\nstr: \"%s\"\nletra: '%c'\nresultado: %d\n\n", cadena, letra, cts);
 
-    int primo = isPrime(3);
-    printf("\n%d\n", primo);
+    // 4. isPrime
+    int num_primo = 3;
+    int primo = isPrime(num_primo);
+    printf("Función: uint8_t isPrime(uint32_t dato)\ndato: %d\nresultado: %d\n\n", num_primo, primo);
 
-    int sdr_ = shr_s(-50);
-    printf("\n%d\n", sdr_);
+    // 5. shr_s
+    int dato_shr = -50;
+    int res = shr_s(dato_shr);
+    printf("Función: int shr_s(int dato)\ndato: %d\nresultado: %d\n", dato_shr, res);
     return 0;
 }
