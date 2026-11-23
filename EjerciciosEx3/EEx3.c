@@ -1,13 +1,8 @@
 #include <stdio.h>
-#include <stdint.h>
-
 
 int NotBit32b(int dato, int numbit);
-
 int XchgBits(int dato, int numbit1, int numbit2);
-
 int str_cnt_chr(char *str, char letra);
-
 int isPrime(int dato);
 int shr_s(int dato);
 
