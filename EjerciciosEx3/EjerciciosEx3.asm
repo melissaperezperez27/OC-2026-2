@@ -60,26 +60,12 @@ XchgBits:
 str_cnt_chr:
 	push ebp
 	mov ebp, esp
-	push ebx 
-	push esi
-	mov esi, [ebp+8]
-	mov edx, [ebp+12]
-	mov ecx, 0
-	mov eax, 0
-	mov ebx, [esi+ecx]
-	@@While: cmp ebx, 0
-		je @@End_While
-		inc ecx
-		mov ebx, [esi+ecx]
-		cmp ebx, edx ; a-a
-		jnz .noadd 
-		inc eax
-		.noadd:
-		jmp @@While
-	@@End_While:
-	
-	pop esi
-	pop ebx
+	mov edx, [ebp+8] ; cadena
+	mov
+	@@Do_while:	
+	cmp al, 0
+	je @@Do_while
+
 	pop ebp
 	ret
 
